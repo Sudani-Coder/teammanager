@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}نظام ادارة فرق كرة القدم{% endblock %}
+{% block title %}تفاصيل اللاعب{% endblock %}
 
 {% block content %}
+    {% if player.is_captain %}
+        <h2>{{player.name}} قائد {{player.team}}</h2>
+    {% else %}
+        <h2>{{player.name}} من {{player.team}}</h2>
+    {% endif %}
+    <ul>
+        <li>
+            <h3>اسم اللاعب هو {{player.name}}</h3>
+        </li>
+        <li>
+            <h3>رقم اللاعب هو {{player.number}}</h3>
+        </li>
+        <li>
+            <h3>عمر اللاعب هو {{player.age}}</h3>
+        </li>
+        <li>
+            <h3>فريق اللاعب هو {{player.team}}</h3>
+        </li>
+        <li>
+            <h3>موقع اللاعب في الملعب هو {{player.get_position_in_field_display}}</h3>
+        </li>
+    </ul>
 {% endblock content %}

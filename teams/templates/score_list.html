@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}نظام ادارة فرق كرة القدم{% endblock %}
+{% block title %}نتائج المباريات{% endblock %}
 
 {% block content %}
+    {% for score in scores %}
+    <div style="text-align: center;">
+        <h2>{{score.first_team}} و {{score.second_team}}</h2>
+        <h3>{{score.first_team_score}} - {{score.second_team_score}}</h3>
+    </div>
+    {% endfor %}
 {% endblock content %}

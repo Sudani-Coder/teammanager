@@ -3,4 +3,15 @@
 {% block title %}نظام ادارة فرق كرة القدم{% endblock %}
 
 {% block content %}
+    <div>
+        <h2>{{ team.name }}</h2>
+        <p>{{ team.details }}</p>
+    </div>
+    <div>
+        {% for player in team.player_set.all %}
+        <a href="{% url 'player' player.name %}">
+            <h3>{{player.name}}</h3>
+        </a>
+        {% endfor %}
+    </div>
 {% endblock content %}

@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}نظام ادارة فرق كرة القدم{% endblock %}
+{% block title %}جميع الفرق{% endblock %}
 
 {% block content %}
+    {% for team in teams %}
+    <div>
+        <a href="{% url 'team' team.name %}">
+            <h2>{{ team.name }}</h2>
+        </a>
+        <p>{{ team.details }}</p>
+    </div>
+    {% endfor %}
 {% endblock content %}

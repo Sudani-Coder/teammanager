@@ -25,10 +25,11 @@ class Player(models.Model):
         return f"{self.name} - {self.team}"
 
 class GameScore(models.Model):
-    first_team = models.CharField(max_length=200)
-    second_team = models.CharField(max_length=200)
+    first_team = models.ForeignKey(Team, related_name='first_team', null=True, on_delete=models.SET_NULL)
+    second_team = models.ForeignKey(Team, related_name='second_team', null=True, on_delete=models.SET_NULL)
     first_team_score = models.IntegerField(default=0)
     second_team_score = models.IntegerField(default=0)
+    game_date = models.DateField(auto_now=True)
 
     def __str__(self):
         return f"{self.first_team} {self.first_team_score} - {self.second_team} {self.second_team_score}"

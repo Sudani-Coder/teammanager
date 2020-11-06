@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}اضافة فريق جديد{% endblock %}
+{% block content %}
+    <div class="container p-3">
+        <form action="{% url 'add_team' %}" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>اضافة فريق جديد</legend>
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <br>
+                <input type="submit" value="اضافة">
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}

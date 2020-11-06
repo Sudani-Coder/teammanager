@@ -1,14 +1,16 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}جميع الفرق{% endblock %}
-
 {% block content %}
-    {% for team in teams %}
-    <div>
-        <a href="{% url 'team' team.name %}">
-            <h2>{{ team.name }}</h2>
-        </a>
-        <p>{{ team.details }}</p>
+    <div class="container p-3" style="text-align: center;">
+        <img class="icon_width" src="{% static 'img/ic_teams_list.png' %}" alt="ic teams list" title="ic teams list">
+        {% for team in teams %}
+        <div>
+            <a href="{% url 'team' team.name %}">
+                <h2>{{ team.name }}</h2>
+            </a>
+            <p>{{ team.details }}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 {% endblock content %}

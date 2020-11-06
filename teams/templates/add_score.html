@@ -1,0 +1,13 @@
+<div class="container p-3">
+    <form action="{% url 'scores' %}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>اضافة نتيجة مبارة جديدة</legend>
+            <table style="margin: 0 auto;">
+                {{ form.as_table }}
+            </table>
+            <br>
+            <input type="submit" value="اضافة">
+        </fieldset>
+    </form>
+</div>

@@ -1,12 +1,21 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}نتائج المباريات{% endblock %}
-
 {% block content %}
-    {% for score in scores %}
-    <div style="text-align: center;">
-        <h2>{{score.first_team}} و {{score.second_team}}</h2>
-        <h3>{{score.first_team_score}} - {{score.second_team_score}}</h3>
+    <div class="container p-3" style="text-align: center;">
+        <img class="icon_width" src="{% static 'img/ic_game_score.png' %}" alt="ic_game_score" title="ic_game_score">
+        <div style="text-align: center;">
+            {% include "add_score.html" %}
+        </div>
+        <br>
+        {% for score in scores %}
+        <div>
+            {% ifchanged %}
+            <h2>{{score.game_date|date:"d-m-Y"}}</h2>
+            {% endifchanged %}
+            <h2>{{score.first_team}} و {{score.second_team}}</h2>
+            <h3>{{score.first_team_score}} - {{score.second_team_score}}</h3>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 {% endblock content %}
